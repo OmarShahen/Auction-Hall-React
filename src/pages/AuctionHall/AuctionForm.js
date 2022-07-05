@@ -8,6 +8,7 @@ import { projectStorage } from '../../firebase/config'
 import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage'
 import { useNavigate } from 'react-router-dom'
 import { TailSpin } from 'react-loader-spinner'
+import { mobile } from '../../responsive'
 
 
 const Container = styled.div`
@@ -45,7 +46,6 @@ const FormHeader = styled.h2``
 
 const AuctionFormContainer = styled.form`
     display: flex;
-    flex-direction: row;
     width: 100%;
     padding-top: 5rem;
     flex-wrap: wrap;
@@ -55,15 +55,17 @@ const AuctionFormContainer = styled.form`
 const LeftFormContainer = styled.div`
     display: flex;
     flex-direction: column;
-    fllex: 1;
+    flex: 1;
     width: 50%
+    ${mobile({ width: '100%' })}
 `
 
 const RightFormContainer = styled.div`
     display: flex;
     flex-direction: column;
-    fllex: 1;
+    flex: 1;
     width: 50%;
+    ${mobile({ width: '100%' })}
 `
 
 const InputFieldContainer = styled.div`
@@ -141,6 +143,8 @@ const AuctionForm = () => {
 
     const navigate = useNavigate()
 
+    const [authorized, setAuthorized] = useState(false)
+
     const [categories, setCategories] = useState([])
 
     const [itemName, setItemName] = useState()
@@ -174,11 +178,22 @@ const AuctionForm = () => {
 
     useEffect(() => {
 
+
+        const accessToken = JSON.parse(localStorage.getItem('token'))
+
+        if(!accessToken) {
+        setAuthorized(false)
+        navigate('/login')
+        return 
+        }
+    
+        setAuthorized(true)
+
         itemRequest.get('/categories')
         .then(response => setCategories(response.data.categories))
         .catch(error => console.error(error))
 
-    }, [])
+    }, [authorized])
 
     const submit = (e) => {
 
@@ -291,7 +306,10 @@ const AuctionForm = () => {
 
     return (
         <Container>
-            <Navbar />
+            { authorized
+                ?
+                <div>
+                    <Navbar />
             <MainContainer>
                 <AuctionWrapper>                    
                     <FormContainer>
@@ -373,6 +391,10 @@ const AuctionForm = () => {
                     </FormContainer>
                 </AuctionWrapper>
             </MainContainer>
+                </div>
+                :
+                null
+            }
         </Container>
     )
 }

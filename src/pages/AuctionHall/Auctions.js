@@ -19,7 +19,7 @@ const AuctionWrapper = styled.div`
     padding: .8rem;
     background-color: #DCDCDC;
     border-radius: 5px;
-    margin: 1rem;
+    margin: 1rem 0;
     
 `
 
@@ -30,6 +30,24 @@ const Header = styled.h3`
 
 
 const Auctions = () => {
+
+    const [authorized, setAuthorized] = useState(false)
+
+    const navigate = useNavigate()
+
+    useEffect(() => {
+
+        const accessToken = JSON.parse(localStorage.getItem('token'))
+
+        if(!accessToken) {
+        setAuthorized(false)
+        navigate('/login')
+        return 
+        }
+
+    setAuthorized(true)
+
+    }, [authorized])
 
     /*const navigate = useNavigate()
 
@@ -53,13 +71,20 @@ const Auctions = () => {
 
     return (
         <Container>
-            <Navbar />
-            <MainContainer>
-                
-                <AuctionWrapper>
-                    <AuctionTable />
-                </AuctionWrapper>
-            </MainContainer>            
+            { authorized
+                ?
+                <div>
+                    <Navbar />
+                        <MainContainer>
+                            
+                            <AuctionWrapper>
+                                <AuctionTable />
+                            </AuctionWrapper>
+                        </MainContainer>            
+                </div>
+                :
+                null
+            }
         </Container>
     )
 }

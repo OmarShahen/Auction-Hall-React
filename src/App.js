@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
 
-  
+
   return (
     <Router>
         <Routes>
@@ -17,6 +17,7 @@ function App() {
           <Route path='/auction/:auctionID' element={<Auction />} />
           <Route path='/login' element={<AuctionHallLogin />} />
           <Route path='/' element={<Auctions />} />
+          <Route path="*" element={<AuctionHallLogin />} />
         </Routes>
     </Router>
   ); 

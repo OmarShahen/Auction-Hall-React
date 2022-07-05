@@ -7,6 +7,8 @@ import violinImage from '../../images/violin.jpg'
 import DataTable from '../../components/AuctionHall/BidsTable'
 import AuctionTable from '../../tables/Auction'
 import Item from '../../components/AuctionHall/Item'
+import { useNavigate } from 'react-router-dom'
+import { socket } from '../../sockets/socket'
 
 const Container = styled.div`
  background-color: #fffbff;
@@ -38,12 +40,34 @@ const BidsContainer = styled.div`
     border-radius: 5px;
 `
 
-
 const Auction = () => {
+
+    const navigate = useNavigate()
+
+    const [authorized, setAuthorized] = useState(false)
+    useEffect(() => {
+
+        const token = JSON.parse(localStorage.getItem('token'))
+
+        if(!token) {
+            setAuthorized(false)
+            navigate('/login')
+
+            return
+        }
+
+        setAuthorized(true)
+
+    }, [])
+
 
     return(
         <Container>
-            <Navbar />
+            {
+                authorized
+                ?
+                <div>
+                    <Navbar />
             <MainContainer>
                 <AuctionWrapper>                    
                     <BidsContainer>
@@ -51,6 +75,11 @@ const Auction = () => {
                     </BidsContainer>
                 </AuctionWrapper>
             </MainContainer>
+                </div>
+                :
+                null
+            }
+
         </Container>
     )
 }

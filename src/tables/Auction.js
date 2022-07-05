@@ -4,6 +4,7 @@ import MaterialTable from 'material-table'
 import TableIcons from './TableIcons'
 import AccountBalanceIcon  from '@material-ui/icons/AccountBalance'
 import { auctionHallRequest } from '../api/auctionHallRequest'
+import { socket } from '../sockets/socket'
 
 const Container = styled.div`
     display: flex;
@@ -68,6 +69,21 @@ const AuctionTable = () => {
         })
         
     }, [loading])
+
+    useEffect(() => {
+
+        const auctionID = window.location.pathname.split('/')[2]
+
+        //socket.on('connection-check', response => console.log(response))
+
+        //socket.on('join-auction-error', response => console.log(response))
+
+        socket.emit('join-auction', { auctionID: auctionID })
+
+        //socket.on('join-auction-success', response => console.log(response))
+
+        socket.on('bid-success', response => setLoading(true))
+    }, [])
 
 
     const columns = [

@@ -165,8 +165,8 @@ const AuctionHallLogin = () => {
         .then(response => {
             setLoading(false)
 
-            sessionStorage.setItem('auctionhall', JSON.stringify(response.data.auctionHall))
-            sessionStorage.setItem('token', JSON.stringify(response.data.token))
+            localStorage.setItem('auctionhall', JSON.stringify(response.data.auctionHall))
+            localStorage.setItem('token', JSON.stringify(response.data.token))
 
             navigate('/auctions')
 
