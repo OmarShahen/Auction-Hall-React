@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from '../../components/AuctionHall/Navbar'
 import Sidebar from '../../components/AuctionHall/SideNavbar'
 import styled from 'styled-components'
 import AuctionTable from '../../tables/AuctionsTable'
+import { useNavigate } from 'react-router-dom'
 
 const Container = styled.div`
-    
+    width: 100%;
 `
 
 const MainContainer = styled.div`
@@ -15,7 +16,10 @@ const MainContainer = styled.div`
 
 const AuctionWrapper = styled.div`
     width: 100%;
-    padding: 1rem;
+    padding: .8rem;
+    background-color: #DCDCDC;
+    border-radius: 5px;
+    margin: 1rem;
     
 `
 
@@ -26,15 +30,33 @@ const Header = styled.h3`
 
 
 const Auctions = () => {
+
+    /*const navigate = useNavigate()
+
+    const [authorized, setAuthorized] = useState(false)
+
+    useEffect(() => {
+
+        const token = JSON.parse(sessionStorage.getItem('token'))
+
+        console.log(token)
+
+        if(!token) {
+            setAuthorized(false)
+            navigate('/login')
+            return 
+        }
+
+        setAuthorized(true)
+    }, [authorized])*/
+
+
     return (
         <Container>
             <Navbar />
             <MainContainer>
                 
                 <AuctionWrapper>
-                    <Header>
-                        Auctions
-                    </Header>
                     <AuctionTable />
                 </AuctionWrapper>
             </MainContainer>            

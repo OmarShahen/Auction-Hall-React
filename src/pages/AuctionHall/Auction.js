@@ -33,7 +33,9 @@ const ItemCondition = styled.p`
 `
 
 const BidsContainer = styled.div`
-    padding: 2rem 0;
+    padding: .8rem;
+    background-color: #DCDCDC;
+    border-radius: 5px;
 `
 
 

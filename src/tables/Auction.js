@@ -87,6 +87,14 @@ const AuctionTable = () => {
         data={bids}
         columns={columns}
         options={{ pageSize: 10 }}
+        actions={[
+            {
+                icon: TableIcons.Refresh,
+                tooltip: 'Reload Auction',
+                onClick: e => setLoading(true),
+                isFreeAction: true
+            }
+        ]}
         />
     </div>
 }

@@ -287,6 +287,12 @@ const AuctionsTable = () => {
                     tooltip: 'Create Auction',
                     onClick: e => navigate('/create-auction'),
                     isFreeAction: true
+                },
+                {
+                    icon: TableIcons.Refresh,
+                    tooltip: 'Reload Auction',
+                    onClick: e => setLoading(true),
+                    isFreeAction: true
                 }
              ]}
              

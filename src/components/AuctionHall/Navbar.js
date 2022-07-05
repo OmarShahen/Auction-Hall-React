@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { mobile } from '../../responsive'
 import MessageOutlinedIcon from '@material-ui/icons/MessageOutlined'
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone'
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined'
@@ -10,12 +11,14 @@ const Container = styled.div`
     padding: 1rem 3rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: 100%;
+    ${mobile({justifyContainer: 'align-start'})}
 `
 
 const AuctionHallName = styled.span`
     font-weight: bold;
     font-size: 1.2rem;
     color: #00008b;
+    ${mobile({display: 'none'})}
 `
 
 const IconTabsContainer = styled.div`
@@ -33,6 +36,7 @@ const NameImage = styled.img`
 
 const NameTag = styled.p`
     padding-top: .5rem;
+    ${mobile({fontSize: '1rem'})}
 `
 
 const Navbar = () => {

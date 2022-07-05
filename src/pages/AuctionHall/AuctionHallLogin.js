@@ -11,6 +11,7 @@ const Container = styled.div`
     display: flex;
     background-color: #E5E5E5;
     height: 100vh;
+    ${mobile({backgroundColor: '#FFF'})}
 `
 
 const FormContainer = styled.div`
@@ -19,10 +20,13 @@ const FormContainer = styled.div`
     align-items: center;
     width: 100%;
     height: 100%;
+    margin: 0rem 0;
 `
 
 const FormWrapper = styled.div`
     width: 90%;
+    ${mobile({width: '80%', padding: '0rem 1rem'})}
+    margin: 1rem;
     display: flex;
     background-color: white;
     border-radius: 5px;
@@ -32,7 +36,8 @@ const FormWrapper = styled.div`
 
 const FormInputsContainer = styled.div`
     flex-grow: 1;
-    padding: 3rem 5rem;
+    padding: 1rem 5rem;
+    ${mobile({padding: '1rem'})}
 `
 
 const FormImageContainer = styled.div`
@@ -73,6 +78,10 @@ const CompanyName = styled.h2`
     font-weight: bold;
     padding-bottom: 3rem;
     ${mobile({textAlign: "center"})}
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 const Header = styled.h4`
@@ -107,6 +116,7 @@ const ErrorMessage = styled.p`
 const Input = styled.input`
     border: none;
     border-bottom: 1px solid #8c8c8c;
+    ${mobile({width: '100%'})}
     &:focus {
         outline: none;
     }

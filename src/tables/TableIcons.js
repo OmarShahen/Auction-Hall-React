@@ -16,6 +16,8 @@ import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import AccountBalanceIcon  from '@material-ui/icons/AccountBalance'
+import RefreshIcon from '@mui/icons-material/Refresh'
+
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -36,6 +38,7 @@ const tableIcons = {
     ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />),
     Auction: forwardRef((props, ref) => <AccountBalanceIcon {...props} ref={ref} />),
+    Refresh: forwardRef((props, ref) => <RefreshIcon {...props} ref={ref} />),
   };
 
 export default tableIcons

@@ -48,6 +48,7 @@ const AuctionFormContainer = styled.form`
     flex-direction: row;
     width: 100%;
     padding-top: 5rem;
+    flex-wrap: wrap;
 
 `
 
