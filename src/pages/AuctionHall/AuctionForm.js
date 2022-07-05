@@ -239,7 +239,7 @@ const AuctionForm = () => {
             return setItemImageError('image is required')
         }
 
-        const auctionHall = JSON.parse(sessionStorage.getItem('auctionhall'))
+        const auctionHall = JSON.parse(localStorage.getItem('auctionhall'))
 
         const newAuction = {
             itemName,
