@@ -38,6 +38,7 @@ const BidsContainer = styled.div`
     padding: .8rem;
     background-color: #DCDCDC;
     border-radius: 5px;
+    margin: 1rem;
 `
 
 const Auction = () => {

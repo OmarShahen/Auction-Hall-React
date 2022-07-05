@@ -11,7 +11,7 @@ const Container = styled.div`
     justify-content: space-between;
     padding: 1rem 3rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    width: 100vw;
+    width: 100%;
 `
 
 const LogoutBtn = styled.button`
@@ -60,7 +60,7 @@ const Navbar = () => {
     return (<Container>
         <LogoutBtn onClick={ e => {
             navigate('/login')
-            localStorage.removeItem('user')
+            localStorage.removeItem('auctionhall')
             localStorage.removeItem('token')
         }}>
             LOGOUT

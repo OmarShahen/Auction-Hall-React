@@ -19,7 +19,7 @@ const AuctionWrapper = styled.div`
     padding: .8rem;
     background-color: #DCDCDC;
     border-radius: 5px;
-    margin: 1rem 0;
+    margin: 1rem;
     
 `
 

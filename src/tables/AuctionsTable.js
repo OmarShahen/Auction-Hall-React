@@ -252,7 +252,7 @@ const AuctionsTable = () => {
 
     useEffect(() => {
 
-        const auctionHall = JSON.parse(sessionStorage.getItem('auctionhall'))
+        const auctionHall = JSON.parse(localStorage.getItem('auctionhall'))
 
         auctionHallRequest.get(`/get-owner-auctions/${auctionHall._id}`)
         .then(response => {
